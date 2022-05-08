@@ -448,6 +448,7 @@ enum ViewType
 //----------------------------------------------------------------------------
 - (void)handleThreadStateChanged:(NSNotification *)notification
 {
+    dispatch_async(dispatch_get_main_queue(), ^{
   if ([notification object] == dataController)
   {
     NSString * threadState = [[notification userInfo] objectForKey:MVStatusUserInfoKey];
@@ -470,6 +471,7 @@ enum ViewType
       }
     }
   }
+    });
 }
 
 //----------------------------------------------------------------------------
