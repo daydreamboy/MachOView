@@ -1005,8 +1005,10 @@ using namespace std;
       
       // fill in lookup table with undefined sybols (key equals (-1) * index)
       uint64_t key = *symbols_64.begin() - nlist_64 - 1;
+        if (symbolName) {
       [symbolNames setObject:symbolName
                       forKey:[NSNumber numberWithUnsignedLongLong:key]];
+        }
     }
     
     [node.details setAttributesFromRowIndex:bookmark:MVMetaDataAttributeName,symbolName,
